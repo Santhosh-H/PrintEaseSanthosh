@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Image Classification</title>
-        <link rel="stylesheet" href="static/style.css"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
         <h2>Image Classification Using SVM</h2><h4>(Cars and Airplanes only!!)</h4><br>
@@ -9,7 +9,7 @@
 
         <!-- Upload  -->
         <form action="/upload" method="POST" id="file-upload-form" class="uploader" enctype="multipart/form-data">
-        <input id="file-upload" type="file" name="file" accept="image/*" />
+        <input id="file-upload" type="file" name="file" accept="pdf/*" />
 
         <label for="file-upload" id="file-drag">
             <img id="file-image" src="#" alt="Preview" class="hidden">
@@ -108,7 +108,7 @@ function ekUpload() {
     // console.log(fileType);
     var imageName = file.name;
 
-    var isGood = /\.(?=gif|jpg|png|jpeg)/gi.test(imageName);
+    var isGood = /\.(?=pdf)/gi.test(imageName);
     if (isGood) {
       document.getElementById("start").classList.add("hidden");
       document.getElementById("response").classList.remove("hidden");
