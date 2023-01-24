@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="style.css"/>
         <script>
             // Set the 2 minute countdown
-            var timer = 120;
+            var timer = 6;
             var intervalId = setInterval(function(){
                 timer--;
                 // Update the timer element with the current time
@@ -13,22 +13,18 @@
                     // Stop the interval when the timer reaches 0
                     clearInterval(intervalId);
                     // Display the timeout message
-                    document.getElementById("timeout").style.display = "block";
+                    window.location.href="http://127.0.0.1:5000"
                 }
+                
             }, 1000);
+            
         </script>
     </head>
     <body>
         <h2>PrintEase</h2><h4>(Streamlined Printing Services For Local Shops and Customers)</h4><br>
         <p class="lead">Print Any file <b>Just with One Click</b><br>(credits: Samuel, Santhosh & Vejay)</p>
         <br>
-        <center><img src="static/qr.png" height="300px" width="300px"></center>
-        <h2>Scan to Proceed for Payment!</h2>
-        <br>
-        <div id="timer"></div>
+        <h2  style="color:red;">!!!QR Code already Scanned!!!</h2>
+        <h4>You will be redirected to the main page in <span id="timer"></span></h4>
    </body>
-   <!-- <script>
-    window.location.href = "{{data}}";
-</script> -->
-   
 </html>
