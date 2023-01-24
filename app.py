@@ -31,7 +31,7 @@ def getData():
         #data = color + side + quantity + " data recieved + unique code next " + unique_id
         # Create the QR code instance
         qr = qrcode.QRCode(version=1, box_size=10, border=5)
-        data="http://192.168.1.15:5000/scan/" + unique_id
+        data="http://192.168.28.59:5000/scan/" + unique_id
         # Add the data to the QR code
         qr.add_data(data)
         qr.make(fit=True)
