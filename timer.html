@@ -1,0 +1,46 @@
+<html>
+<head>
+    <script>
+        // Set the 2 minute countdown
+        var timer = 120;
+        var intervalId = setInterval(function(){
+            timer--;
+            // Update the timer element with the current time
+            document.getElementById("timer").innerHTML = timer;
+            if(timer === 0){
+                // Stop the interval when the timer reaches 0
+                clearInterval(intervalId);
+                // Display the timeout message
+                document.getElementById("timeout").style.display = "block";
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <!-- Other elements on the page -->
+    <div id="timer"></div>
+    <div id="timeout" style="display:none">
+        <h1>Timeout</h1>
+        <p>Sorry, your session has timed out.</p>
+    </div>
+</body>
+</html>
+
+<!-- <html>
+<head>
+    <script>
+        // Set a 2 minute timeout
+        setTimeout(function(){
+            // Display the timeout message
+            document.getElementById("timeout").style.display = "block";
+        }, 120000);
+    </script>
+</head>
+<body>
+    <!-- Other elements on the page -->
+    <div id="timeout" style="display:none">
+        <h1>Timeout</h1>
+        <p>Sorry, your session has timed out.</p>
+    </div>
+</body>
+</html> -->
