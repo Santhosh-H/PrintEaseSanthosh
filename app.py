@@ -1,51 +1,47 @@
 from flask import *  
-import pickle
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
-#from skimage.transform import resize
-import numpy as np
-import pandas as pd
-import cv2 
-
+import os 
+import qrcode
+import uuid
 
 app = Flask(__name__) 
-import os 
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 @app.route('/upload',methods=["POST","GET"])
-def getImage():
+def getData():
     if request.method == 'POST':
         result = request.files['file']
+        color = request.form.get('color')
+        side = request.form.get('side')
+        quantity = request.form.get('quantity')
+        print(color, side, quantity)
         result.save(result.filename)
-        pred = predict(result.filename)
-        print(pred)
-        os.remove(result.filename)
-    return render_template('index.html')+ '''<div style='
-    font-family: "Roboto", sans-serif;
-  font-variant: small-caps;
-  line-height: 1;
-  color: #454cad;
-  margin-bottom: 0;
-   margin: 0;
-   position: absolute;
-   top: 80%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-}'><h1 style='font-size: 30px;'>Our Model predicts this image as ''' + pred + '.</h1></div>'
-
-def predict(file):
-    Class=['Car', 'AirPlane']
-    model = pickle.load(open('carplane.pkl','rb'))
-    img = cv2.imread(file,0)
-    image=cv2.resize(img,(128,128))
-    image = image.reshape(1,-1)
-    print(image.shape)
-    pred = model.predict(image)
-    return Class[pred[0]]
-   
+        #os.remove(result.filename)
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0",use_reloader=False)
+
+    
+def QR_Gen():
+    # Create a unique identifier
+    unique_id = str(uuid.uuid4())
+
+    # Create the data to be encoded in the QR code, including the unique identifier
+    data = "https://www.example.com?id=" + unique_id
+
+    # Create the QR code instance
+    qr = qrcode.QRCode(version=1, box_size=10, border=5)
+
+    # Add the data to the QR code
+    qr.add_data(data)
+    qr.make(fit=True)
+
+    # Create an image from the QR code instance
+    img = qr.make_image(fill_color="black", back_color="white")
+
+    # Save the image
+    img.save("qr_code_with_id.png")
