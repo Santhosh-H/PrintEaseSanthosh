@@ -9,41 +9,52 @@
 
         <!-- Upload  -->
         <form action="/upload" method="POST" id="file-upload-form" class="uploader" enctype="multipart/form-data">
-        <input id="file-upload" type="file" name="file" accept="pdf/*" />
-
-        <label for="file-upload" id="file-drag">
-            <img id="file-image" src="#" alt="Preview" class="hidden">
-            <div id="start">
-            <i class="fa fa-download" aria-hidden="true"></i>
-            <div>Select a file or drag here</div>
-            <div id="notimage" class="hidden">Please select an image</div>
-            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
-            </div>
-            <div id="response" class="hidden">
-            <div id="messages"></div>
-            <progress class="progress" id="file-progress" value="0">
-                <span>0</span>%
-            </progress>
-            </div>
-            <div>
-              <input id='sub_btn' class="btn btn-primary" type='submit'/>
-            </div>
-            
+          <input id="file-upload" type="file" name="file" accept="pdf/*" />
+  
+          <label for="file-upload" id="file-drag">
+              <img id="file-image" src="#" alt="Preview" class="hidden">
+              <div id="start">
+              <i class="fa fa-download" aria-hidden="true"></i>
+              <div>Select a file or drag here</div>
+              <div id="notimage" class="hidden">Please select an pdf file</div>
+              <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+              </div>
+              <div id="response" class="hidden">
+              <div id="messages"></div>
+              <progress class="progress" id="file-progress" value="0">
+                  <span>0</span>%
+              </progress>
+              </div>    
+          </label>
+         
+          </form>
+        <!--What should be the color of your print-->
+        <form class="bt">
+          <label>
+          <h4>What should be the color of your print?</h4><br>
+          <h1><input type="radio" name="color">Color&emsp;
+        <input type="radio" name="color">Black And White</h1>
         </label>
-        
         </form>
-
-        <img src="static/Samuel.png" alt="Samuel" height=12% style="border-radius:50%;margin: 0;
-        position: absolute;
-        top: 93.5%;
-        left: 11.5%;
-        transform: translate(-50%, -50%);">
-        <img src="static/Santhosh.png" alt="Santhosh" height=12% style="border-radius:50%;margin: 0;
-        position: absolute;
-        top: 93.5%;
-        left: 88.5%;
-        transform: translate(-50%, -50%);">
-    </body>
+        <!-- how do you want to print  -->
+        <form class="bt">
+          <label>
+          <h4>How do you want to print?</h4><br>
+          <h1><input type="radio" name="side">Single Side&emsp;
+        <input type="radio" name="side">Front And Back</h1>
+        </label>
+        </form>
+        <!-- How do you want your oriantation to be?-->
+        <form class="bt">
+          <label>
+          <h4>How do you want your oriantation to be?</h4><br>
+          <h1><input type="radio" name="oren">Portrait&emsp;
+        <input type="radio" name="oren">Landscape</h1>
+        </label>
+        </form>
+        
+        
+   </body>
     <script>
         // File Upload
 //
