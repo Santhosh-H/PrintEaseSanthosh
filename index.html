@@ -9,12 +9,13 @@
 
         <!-- Upload  -->
         <form action="/upload" method="POST" id="file-upload-form" class="uploader" enctype="multipart/form-data">
-          <input id="file-upload" type="file" name="file" accept="pdf/*" />
-  
+          
           <label for="file-upload" id="file-drag">
               <img id="file-image" src="#" alt="Preview" class="hidden">
               <div id="start">
-              <i class="fa fa-download" aria-hidden="true"></i>
+                <input id="file-upload" type="file" name="file" accept="pdf/*" />
+  
+                <i class="fa fa-download" aria-hidden="true"></i>
               <div>Select a file or drag here</div>
               <div id="notimage" class="hidden">Please select an pdf file</div>
               <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
@@ -24,7 +25,10 @@
               <progress class="progress" id="file-progress" value="0">
                   <span>0</span>%
               </progress>
-              </div>    
+              </div>
+              <div>
+                <input id='sub_btn' class="btn btn-primary" type='submit' value="Upload"/>
+              </div>
           </label>
          
           </form>
@@ -48,14 +52,11 @@
         <form class="bt">
           <label>
           <h4>How many copies do you want?</h4><br>
-          <h1><select name="copy">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          </h1>
+          <h1><input type="number" name="quantity" min="1" max="10">
+          </h1><br>
+          <div>
+            <input id='sub_btn' class="btn btn-primary" type='submit' value="Order"/>
+          </div>
         </label>
         </form>
         
