@@ -55,7 +55,7 @@ def scan_qr_code(qr_code_id):
         data="http://192.168.1.15:5000/completed.html"
         return render_template("completed.html", url=data)
     else:
-        return "Invalid QR code or already scanned"
+        return render_template("scanned.html")
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",use_reloader=False)
