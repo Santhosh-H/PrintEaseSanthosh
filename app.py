@@ -70,6 +70,8 @@ def logout():
 
 @app.route('/PrintEase',methods=["GET","POST"])
 def index():
+    shop=request.form.get('shops')
+    print(shop)
     return render_template('index.html')
 
 @app.route('/upload',methods=["POST","GET"])
@@ -105,6 +107,7 @@ def getData():
 
         #Code for generating total amount
         #get the shop selected
+
 
 
     return render_template('payment.html', qr_code_id=unique_id, data=data)
