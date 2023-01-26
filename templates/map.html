@@ -82,7 +82,7 @@
       </div> 
 <button id="demo" onclick="locationmp()"  class="search">SEARCH SHOP NEAR ME</button>
 
-<button id="next" class="proc" hidden>PROCEED</button>
+<button id="next" class="proc" onclick="go()" hidden>PROCEED</button>
 
 <div id="textDiv" class="details"> </div>
     
@@ -92,6 +92,12 @@
         
     
 <script>
+
+function go(){
+    console.log("clicked");
+    window.location.href="{{url_for('index')}}";
+}
+
 function locationmp() {
   document.getElementById("loc").src = "https://www.google.com/maps/d/u/0/embed?mid=1gJ7Ybh39r8vk15z8m1O0G-RrD5nN628&ehbc=2E312F";
   document.getElementById("shop").hidden =false;
