@@ -7,6 +7,7 @@ import sqlite3
 
 con=sqlite3.connect("database.db")
 cur=con.cursor()
+con.execute("create table if not exists shop(name text primary key,colordouble integer,colorsingle integer,blacksingle integer,blackdouvble integer)")
 cur.execute("select * from shop")
 data=cur.fetchall()
 print(data)
