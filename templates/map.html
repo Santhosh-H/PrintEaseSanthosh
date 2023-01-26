@@ -3,18 +3,32 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <title>PrintEase</title>
-    
+    <style>
+        *{
+            background-color:lightblue ;
+        }
+    </style>
 </head>
 <body>
     <div class="page">
-    <div class="navi">
     <button class="navigator" type="button" onclick="alert('login page not yet developed')">LOGIN</button>
     <button class="navigator2" type="button" onclick="alert('login page not yet developed')">SIGNUP</button>
-</div>
-    <div class="container">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1gJ7Ybh39r8vk15z8m1O0G-RrD5nN628&ehbc=2E312F" width="1300" height="500" ></iframe>
-    </div>
 
 </div>
+<button id="demo" onclick="locationmp()"  class="search">SEARCH SHOP NEAR ME</button>
+        
+<div class="container" width="1300px" height="500px">
+        <iframe id="loc" src="https://www.google.com/maps/d/u/0/embed?mid=1CmQaBrL6GIuVYSU64_YpAlguQ0ul3dY&ehbc=2E312F"width="1300px" height="500px" ></iframe>
+    </div>
+        
+
+<script>
+function locationmp() {
+  document.getElementById("loc").src = "https://www.google.com/maps/d/u/0/embed?mid=1gJ7Ybh39r8vk15z8m1O0G-RrD5nN628&ehbc=2E312F" ;
+  document.getElementById("demo").alert('searching for xerox shops');
+  
+}
+</script>
+
 </body>
 </html>

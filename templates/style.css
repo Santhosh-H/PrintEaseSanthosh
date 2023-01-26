@@ -27,35 +27,41 @@ h2, #timer {
   margin-bottom: 0;
 }
 .navigator{
-    color: white;
-    background-color:#454cad ;
-    position:absolute; top:5px; left:3px;
-    width:130px;
-    height: 50px;
-    border-radius: 25px;
+  color: black;
+  font-style:italic;
+  font-weight: bold;
+  background-color:wheat ;
+  position:absolute; top: 8px; left:7px;
+  width:150px;
+  height: 30px;
+  border-radius: 6px;
 }
-.navi{
-  height:60px;
-  width: 1520px;
-  position:absolute; top:0; right:0;left:0;
-}
+
 .navigator2{
-  color: white;
-  background-color:#454cad ;
-  position:absolute; top:5px; right:3px;
-  width:130px;
+  color: black;
+  font-style:italic;
+  font-weight: bold;
+  background-color:wheat ;
+  position:absolute; top: 8px; right:7px;
+  width:150px;
+  height: 30px;
+  border-radius: 6px;
+}
+.search{
+  color: black;
+  font-style:italic;
+  font-weight: bold;
+  background-color:wheat ;
+  position:absolute; top:60px; right:640px;
+  width:240px;
   height: 50px;
   border-radius: 25px;
 }
 .container{
-  width:100%;
+  width:1300;
   height:90vh;
   padding-top: 100px;
-  padding-left: 20px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  
+  padding-left: 10px;
 }
 h4 {
     font-family: "Roboto", sans-serif;
