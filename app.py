@@ -57,7 +57,7 @@ def register():
         except:
             flash("Error in Insert Operation","danger")
         finally:
-            return redirect(url_for("index"))
+            return redirect(url_for("index1"))
             con.close()
 
     return render_template('register.html')
@@ -68,7 +68,7 @@ def logout():
     return redirect(url_for("index"))
 
 
-@app.route('/')
+@app.route('/PrintEase')
 def index():
     return render_template('index.html')
 
@@ -89,7 +89,7 @@ def getData():
         #data = color + side + quantity + " data recieved + unique code next " + unique_id
         # Create the QR code instance
         qr = qrcode.QRCode(version=1, box_size=10, border=5)
-        data="http://192.168.101.5:5000/scan/" + unique_id
+        data="http://192.168.28.59:5000/scan/" + unique_id
         # Add the data to the QR code
         qr.add_data(data)
         qr.make(fit=True)
@@ -110,7 +110,7 @@ def scan_qr_code(qr_code_id):
     if qr_codes.get(qr_code_id):
         # remove the scanned qr code from the dictionary
         qr_codes.pop(qr_code_id)
-        data="http://192.168.101.5:5000/completed.html"
+        data="http://192.168.28.59:5000/completed.html"
         return render_template("completed.html", url=data)
     else:
         return render_template("scanned.html")
