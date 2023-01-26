@@ -127,15 +127,19 @@ def getData():
         data=cur.fetchall()
 
         lis=data[selected_shop]
-
-        if(side==0 and color==1):
+        quantity=int(quantity)
+        print(type(lis[1]), type(pages), type(quantity))
+        print(lis[1],lis[2],lis[3],lis[4],pages,quantity)
+        print(side, color)
+        if(side=='0' and color=='1'):
             total=lis[1]*pages*quantity
-        elif(side==1 and color==1):
+        if(side=='1' and color=='1'):
             total=lis[2]*pages*quantity
-        elif(side==0 and color==0):
+        if(side=='0' and color=='0'):
             total=lis[3]*pages*quantity
-        else:
+        if(side=='1' and color=='0'):
             total=lis[4]*pages*quantity
+        
 
         print("toatl amount is = Rs ",total)
 
