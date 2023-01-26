@@ -266,7 +266,7 @@ flex-direction: column;
         </style>
         <script>
             // Set the 2 minute countdown
-            var timer = 120;
+            var timer = 10;
             var timer2=6;
             var intervalId = setInterval(function(){
                 timer--;
@@ -275,11 +275,14 @@ flex-direction: column;
                 if(timer === 0){
                     // Stop the interval when the timer reaches 0
                     clearInterval(intervalId);
+                    document.getElementById("timeout").hidden = false;
+                    
                     var intervalId2 = setInterval(function(){
+                      document.getElementById("timer2").innerHTML = timer2;
                     timer2--;
                     if(timer2 === 0){
                     // Display the timeout message
-                    document.getElementById("timeout").style.display = "block";
+                    window.location.reload();
                 }
             },1000);
         }
@@ -298,7 +301,7 @@ flex-direction: column;
         <br> 
         <br>
         <div><h2>Timeout in <span id="timer"></span></h2></div>
-        <div id="timeout">Redirecting in <span id="timer2"></span></div>
+        <div id="timeout" hidden>Redirecting in <span id="timer2"></span></div>
    </body>
    <!-- <script>
     window.location.href = "{{data}}";

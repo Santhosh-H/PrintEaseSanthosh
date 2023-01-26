@@ -36,14 +36,15 @@ def login():
         cur=con.cursor()
         cur.execute("select * from work where name=? and password=?",(name,password))
         data=cur.fetchone()
-
+        print(data)
         if data:
             session["name"]=data["name"]
             session["password"]=data["password"]
-            return redirect("customer")
+            return redirect(url_for("customer"))
         else:
-            flash("Username and Password Mismatch","danger")
-    return redirect(url_for("index"))
+            # flash("Username and Password Mismatch","danger")
+            return redirect(url_for("register"))
+    # return redirect(url_for("customer"))
 
 
 @app.route('/customer',methods=["GET","POST"])
