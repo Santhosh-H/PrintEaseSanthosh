@@ -70,19 +70,21 @@
     </style>
 </head>
 <body>
+    <form method="POST" action="{{ url_for('index') }}">
     <div class="dropdown">
         
         <select name="shops" class="but" id="shop" hidden onchange="getText(this)">
             <option value="">-- Select A Shop -- </option>
-            <option value="sh1">Jessi Xerox</option>
-            <option value="sh2">College Xerox</option>
-            <option value="sh3">Sri Ram Xerox</option>
+            <option value=0>Jessi Xerox</option>
+            <option value=1>College Xerox</option>
+            <option value=2>Sri Ram Xerox</option>
             
           </select>
       </div> 
 <button id="demo" onclick="locationmp()"  class="search">SEARCH SHOP NEAR ME</button>
 
-<button id="next" class="proc" onclick="go()" hidden>PROCEED</button>
+<!-- <button id="next" class="proc" onclick="go()" hidden>PROCEED</button> -->
+<input id="next" class="proc" type="submit" value="PROCEED">
 
 <div id="textDiv" class="details"> </div>
     
@@ -92,11 +94,6 @@
         
     
 <script>
-
-function go(){
-    console.log("clicked");
-    window.location.href="{{url_for('index')}}";
-}
 
 function locationmp() {
   document.getElementById("loc").src = "https://www.google.com/maps/d/u/0/embed?mid=1gJ7Ybh39r8vk15z8m1O0G-RrD5nN628&ehbc=2E312F";
