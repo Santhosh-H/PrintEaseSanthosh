@@ -4,6 +4,15 @@ import qrcode
 import uuid
 from flask import Flask, render_template,request,flash,redirect,url_for,session
 import sqlite3
+import PyPDF2
+
+
+selected_shop=0
+#no of pages in pdf
+def get_num_pages(file_path):
+    pdf_file = open(file_path, 'rb')
+    pdf_reader = PyPDF2.PdfReader(pdf_file)
+    return len(pdf_reader.pages)
 
 app = Flask(__name__)
 app.secret_key="123"
@@ -70,9 +79,11 @@ def logout():
 
 @app.route('/PrintEase',methods=["GET","POST"])
 def index():
+    #get the shop selected
     shop=request.form.get('shops')
     print(shop)
-    return render_template('index.html')
+    global selected_shop
+    return render_template('index.html', selected_shop=shop)
 
 @app.route('/upload',methods=["POST","GET"])
 def getData():
@@ -104,13 +115,30 @@ def getData():
         # Add the identifier to the qr_codes dictionary
         qr_codes[unique_id] = True
 
+        #code for no of pages
+        pages=get_num_pages(result.filename)
+
 
         #Code for generating total amount
         #get the shop selected
+        con=sqlite3.connect("database.db")
+        cur=con.cursor()
+        cur.execute("select * from shopdetails")
+        data=cur.fetchall()
+
+        lis=data[selected_shop]
+
+        if(side==0 and color==1):
+            total=lis[1]*pages*quantity
+        elif(side==1 and color==1):
+            total=lis[2]*pages*quantity
+        elif(side==0 and color==0):
+            total=lis[3]*pages*quantity
+        else:
+            total=lis[4]*pages*quantity
 
 
-
-    return render_template('payment.html', qr_code_id=unique_id, data=data)
+    return render_template('payment.html', qr_code_id=unique_id, cost=total)
 
 @app.route("/scan/<qr_code_id>")
 def scan_qr_code(qr_code_id):
@@ -118,8 +146,8 @@ def scan_qr_code(qr_code_id):
     if qr_codes.get(qr_code_id):
         # remove the scanned qr code from the dictionary
         qr_codes.pop(qr_code_id)
-        data="http://192.168.28.59:5000/completed.html"
-        return render_template("completed.html", url=data)
+        
+        return render_template("completed.html")
     else:
         return render_template("scanned.html")
 
