@@ -47,22 +47,7 @@ h2, #timer {
   height: 30px;
   border-radius: 6px;
 }
-.search{
-  color: black;
-  font-style:italic;
-  font-weight: bold;
-  background-color:wheat ;
-  position:absolute; top:60px; right:640px;
-  width:240px;
-  height: 50px;
-  border-radius: 25px;
-}
-.container{
-  width:1300;
-  height:90vh;
-  padding-top: 100px;
-  padding-left: 10px;
-}
+
 h4 {
     font-family: "Roboto", sans-serif;
   font-variant: small-caps;

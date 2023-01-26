@@ -39,7 +39,7 @@ def login():
 
 @app.route('/customer',methods=["GET","POST"])
 def customer():
-    return render_template("index.html")
+    return render_template("map.html")
 
 @app.route('/register',methods=['GET','POST'])
 def register():
