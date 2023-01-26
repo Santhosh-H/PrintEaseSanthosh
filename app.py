@@ -102,6 +102,11 @@ def getData():
         # Add the identifier to the qr_codes dictionary
         qr_codes[unique_id] = True
 
+
+        #Code for generating total amount
+        #get the shop selected
+        
+
     return render_template('payment.html', qr_code_id=unique_id, data=data)
 
 @app.route("/scan/<qr_code_id>")
