@@ -137,6 +137,7 @@ def getData():
         else:
             total=lis[4]*pages*quantity
 
+        print("toatl amount is = Rs ",total)
 
     return render_template('payment.html', qr_code_id=unique_id, cost=total)
 

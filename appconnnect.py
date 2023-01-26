@@ -12,7 +12,8 @@ cur=con.cursor()
 #con.execute("create table if not exists shopdetails(name text primary key,colordouble integer,colorsingle integer,blacksingle integer,blackdouvble integer)")
 cur.execute("select * from shopdetails")
 data=cur.fetchall()
-print(data)
+lis=data[0]
+print(lis[1])
 
 
 
