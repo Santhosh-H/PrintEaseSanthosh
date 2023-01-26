@@ -1,0 +1,44 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html,
+body,
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  padding: 2rem;
+  background: #f8f8f8;
+}
+
+h2, #timer, #timeout, #timer2 {
+  font-family: "Roboto", sans-serif;
+  font-variant: small-caps;
+  font-size: 36px;
+  line-height: 1;
+  color: #454cad;
+  margin-bottom: 0;
+}
+
+
+h4 {
+    font-family: "Roboto", sans-serif;
+  font-variant: small-caps;
+  font-size: 25px;
+  line-height: 1;
+  color: #454cad;
+  margin-bottom: 0;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #5f6982;
+}
