@@ -68,7 +68,7 @@ def logout():
     return redirect(url_for("index"))
 
 
-@app.route('/PrintEase')
+@app.route('/PrintEase',methods=["GET","POST"])
 def index():
     return render_template('index.html')
 
@@ -105,7 +105,7 @@ def getData():
 
         #Code for generating total amount
         #get the shop selected
-        
+
 
     return render_template('payment.html', qr_code_id=unique_id, data=data)
 

@@ -70,7 +70,7 @@
     </style>
 </head>
 <body>
-    <form method="POST" action="{{ url_for('index') }}">
+    <form method="POST" action="/PrintEase">
     <div class="dropdown">
         
         <select name="shops" class="but" id="shop" hidden onchange="getText(this)">
@@ -81,18 +81,20 @@
             
           </select>
       </div> 
-<button id="demo" onclick="locationmp()"  class="search">SEARCH SHOP NEAR ME</button>
+
 
 <!-- <button id="next" class="proc" onclick="go()" hidden>PROCEED</button> -->
-<input id="next" class="proc" type="submit" value="PROCEED">
+<input id="next" class="proc" type="submit" value="PROCEED" hidden>
 
-<div id="textDiv" class="details"> </div>
+
     
-<div class="container" width="1300px" height="500px">
+
+    </form>
+    <div class="container" width="1300px" height="500px">
         <iframe id="loc" src="https://www.google.com/maps/d/u/0/embed?mid=1CmQaBrL6GIuVYSU64_YpAlguQ0ul3dY&ehbc=2E312F"width="900" height="480" ></iframe>
     </div>
-    </form>
-    
+    <div id="textDiv" class="details"> </div>
+    <button id="demo" onclick="locationmp()"  class="search">SEARCH SHOP NEAR ME</button>
 <script>
 
 function locationmp() {
