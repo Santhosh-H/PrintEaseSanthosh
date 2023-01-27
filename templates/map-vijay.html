@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>PrintEase</title>
+</head>
+<body>
+    <form method="POST" action="/PrintEase">
+    <div class="dropdown">
+        
+        <select name="shops" class="but" id="shop" hidden onchange="getText(this)">
+            <option value="">-- Select A Shop -- </option>
+            <option value=0>Jessi Xerox</option>
+            <option value=1>College Xerox</option>
+            <option value=2>Sri Ram Xerox</option>
+            
+          </select>
+      </div> 
+
+
+<!-- <button id="next" class="proc" onclick="go()" hidden>PROCEED</button> -->
+<input id="next" class="proc" type="submit" value="PROCEED" hidden>
+
+
+    
+
+    </form>
+    <div class="container" width="1300px" height="500px">
+        <iframe id="loc" src="https://www.google.com/maps/d/u/0/embed?mid=1CmQaBrL6GIuVYSU64_YpAlguQ0ul3dY&ehbc=2E312F"width="100%" height="800px" ></iframe>
+    </div>
+    <div id="textDiv" class="details"> </div>
+    <button id="demo" onclick="locationmp()"  class="search">SEARCH SHOP NEAR ME</button>
+<script>
+
+function locationmp() {
+  document.getElementById("loc").src = "https://www.google.com/maps/d/u/0/embed?mid=1gJ7Ybh39r8vk15z8m1O0G-RrD5nN628&ehbc=2E312F";
+  document.getElementById("shop").hidden =false;
+}
+
+ 
+
+
+
+var DivTxt = new Array()
+DivTxt[0] = "Select any one of the shop listed!"
+DivTxt[1] = "Name of the Shop: Jessi Xerox " + "<br>" + "Price for Singleside Black&White print: Rs.3 "+ "<br>" + "Price for Doubleside Black&White print: Rs.2"+ "<br>"+ "Price for Singleside color print: Rs.10"+ "<br>" + "Price for Doubleside color print: Rs.9"
+DivTxt[2] = "Name of the Shop: College Xerox " + "<br>" + "Price for Singleside Black&White print: Rs.2 "+ "<br>" + "Price for Doubleside Black&White print: Rs.1"+ "<br>"+ "Price for Singleside color print: Rs.9"+ "<br>" + "Price for Doubleside color print: Rs.8"
+DivTxt[3] =  "Name of the Shop: Sri Ram Xerox " + "<br>" + "Price for Singleside Black&White print: Rs.4 "+ "<br>" + "Price for Doubleside Black&White print: Rs.3"+ "<br>"+ "Price for Singleside color print: Rs.11"+ "<br>" + "Price for Doubleside color print: Rs.10"
+
+function getText(slction){
+txtSelected = slction.selectedIndex;
+    if(txtSelected==0){
+    document.getElementById('textDiv').innerHTML = DivTxt[txtSelected];
+    document.getElementById('next').hidden=true;
+        
+    }
+    else{
+    document.getElementById('textDiv').innerHTML = DivTxt[txtSelected];
+    document.getElementById('next').hidden=false;
+
+    }
+}
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
